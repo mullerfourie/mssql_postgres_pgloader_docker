@@ -21,7 +21,7 @@ services:
         environment:
             - POSTGRES_USER=postgres
             - POSTGRES_PASSWORD=password_here
-            - POSTGRES_DB=radel
+            - POSTGRES_DB=test_db
     pgloader:
         container_name: pgloader
         image: dimitri/pgloader
