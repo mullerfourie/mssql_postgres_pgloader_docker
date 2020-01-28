@@ -1,0 +1,27 @@
+
+# https://docs.microsoft.com/en-us/sql/linux/sql-server-linux-configure-docker?view=sql-server-ver15 for sql server docker info
+
+
+version: '3.7'
+
+services:
+    sql-server-db:
+        container_name: sql-server-db
+        image: microsoft/mssql-server-linux:2017-latest
+        ports:
+          - "1433:1433"
+        environment:
+          SA_PASSWORD: "password_here"
+          ACCEPT_EULA: "Y"
+    postgres:
+        container_name: postgres
+        image: postgres:12.1-alpine
+        ports:
+            - 5433:5433
+        environment:
+            - POSTGRES_USER=postgres
+            - POSTGRES_PASSWORD=password_here
+            - POSTGRES_DB=radel
+    pgloader:
+        container_name: pgloader
+        image: dimitri/pgloader
